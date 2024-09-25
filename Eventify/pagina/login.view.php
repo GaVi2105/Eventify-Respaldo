@@ -12,7 +12,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">Eventify</a>
+            <a class="navbar-brand" href="../../index.php">Eventify</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -29,7 +29,7 @@
                     <li class="nav-item"><a class="nav-link" href="perfil.php">Mi Perfil</a></li>
                     <li class="nav-item"><a class="nav-link" href="cerrar_sesion.php">Cerrar Sesión</a></li>
                         <?php else: ?>
-                    <li class="nav-item"><a class="nav-link" href="funciones/usuario/login.php">Iniciar Sesión</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.php">Iniciar Sesión</a></li>
                     <li class="nav-item"><a class="nav-link" href="register.php">Registrarse</a></li>
                         <?php endif; ?>
                 </ul>

@@ -11,7 +11,6 @@ if (!isset($_GET['id'])) {
 $id_evento = $_GET['id'];
 $id_usuario = $_SESSION['ID_usuario'];
 
-// Verifica que el usuario es el organizador del evento
 $sql_check = "SELECT e.* FROM Evento e 
               INNER JOIN Organizador o ON e.ID_organizador = o.ID_organizador 
               WHERE e.ID_evento = ? AND o.ID_usuario = ?";
@@ -27,7 +26,6 @@ if ($result_check->num_rows == 0) {
 
 $evento = $result_check->fetch_assoc();
 
-// Maneja la actualización del evento
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = mysqli_real_escape_string($conn, $_POST['nombre']);
     $descripcion = mysqli_real_escape_string($conn, $_POST['descripcion']);
@@ -43,7 +41,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt_update->execute()) {
         $mensaje = "Evento actualizado exitosamente.";
 
-        // Manejar la actualización de la imagen
         if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] == 0) {
             $resultado_imagen = subir_imagen($_FILES['imagen'], $id_evento);
             if (strpos($resultado_imagen, "exitosamente") === false) {
@@ -59,5 +56,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $categorias = obtener_categorias();
 
-// Incluye la vista con los datos
 include '../../pagina/editar_evento.php';

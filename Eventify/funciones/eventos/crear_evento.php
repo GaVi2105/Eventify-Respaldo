@@ -3,7 +3,6 @@ include '../configuracion/config.php';
 session_start();
 verificar_organizador();
 
-// Verificar si el ID de usuario está en la sesión
 if (!isset($_SESSION['ID_usuario'])) {
     $error = "Error: Sesión no válida. No se ha encontrado el ID de usuario.";
 } else {
@@ -17,19 +16,16 @@ if (!isset($_SESSION['ID_usuario'])) {
         $costo = mysqli_real_escape_string($conn, $_POST['costo']);
         $id_categoria = mysqli_real_escape_string($conn, $_POST['id_categoria']);
 
-        // Consultar el ID del organizador
         $sql_organizador = "SELECT ID_organizador FROM Organizador WHERE ID_usuario = ?";
         $stmt_organizador = $conn->prepare($sql_organizador);
         $stmt_organizador->bind_param("i", $id_usuario);
         $stmt_organizador->execute();
         $result_organizador = $stmt_organizador->get_result();
 
-        // Verificar si se encontró un organizador
         if ($result_organizador->num_rows > 0) {
             $row_organizador = $result_organizador->fetch_assoc();
             $id_organizador = $row_organizador['ID_organizador'];
 
-            // Insertar el evento en la base de datos
             $sql = "INSERT INTO Evento (Nombre, Descripcion, Fecha, Ubicacion, Costo_entrada, ID_categoria, ID_organizador) 
                     VALUES (?, ?, ?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($sql);
@@ -39,7 +35,6 @@ if (!isset($_SESSION['ID_usuario'])) {
                 $id_evento = $conn->insert_id;
                 $mensaje = "Evento creado exitosamente.";
 
-                // Manejo de la imagen
                 if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] == 0) {
                     $resultado_imagen = subir_imagen($_FILES['imagen'], $id_evento);
                     if (strpos($resultado_imagen, "exitosamente") === false) {
@@ -57,7 +52,6 @@ if (!isset($_SESSION['ID_usuario'])) {
     }
 }
 
-// Obtener categorías y mostrar la vista
 $categorias = obtener_categorias();
 include '../../pagina/crear_evento.php';
 ?>
