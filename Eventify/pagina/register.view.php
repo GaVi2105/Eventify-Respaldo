@@ -38,6 +38,7 @@
     </nav>
 
     <main class="container mt-5">
+    <br></br>
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <h1 class="mb-4">Registro de Usuario</h1>

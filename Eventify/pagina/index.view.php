@@ -38,6 +38,7 @@
     </nav>
 
     <main class="container mt-4">
+    <br></br>
         <h1 class="mb-4">Bienvenido a Eventify</h1>
         <?php if (isset($_SESSION['usuario'])): ?>
             <div class="alert alert-success">

@@ -38,6 +38,7 @@
     </nav>
 
     <main class="container mt-4">
+        <br></br>
         <h2 class="mb-4">Crear Nuevo Evento</h2>
         <?php if (isset($mensaje)): ?>
             <div class="alert alert-success"><?= $mensaje; ?></div>

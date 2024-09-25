@@ -36,6 +36,7 @@
     </nav>
 
     <main class="container mt-4">
+    <br></br>
         <h1 class="mb-4">Mi Perfil</h1>
         <?php if (isset($mensaje)): ?>
             <div class="alert alert-success" role="alert"><?php echo htmlspecialchars($mensaje); ?></div>
