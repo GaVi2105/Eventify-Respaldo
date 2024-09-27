@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container-fluid">
@@ -34,19 +36,8 @@
             </div>
         </div>
     </nav>
-
     <main class="container mt-4">
-        <h2 class="mb-4">Eventos Destacados</h2>
-        <div class="stories-container" id="storiesContainer">
-            <?php for ($i = 1; $i <= 10; $i++): ?>
-                <div class="story-circle">
-                    Evento <?php echo $i; ?>
-                </div>
-            <?php endfor; ?>
-            <button class="story-nav-button story-nav-prev" id="storyPrev">&lt;</button>
-            <button class="story-nav-button story-nav-next" id="storyNext">&gt;</button>
-        </div>
-        <br></br>
+        <br>
         <h2 class="mb-4">Lista de Eventos</h2>
         <form action="eventos.php" method="get" class="mb-4">
             <div class="row g-3 align-items-center">
@@ -107,15 +98,13 @@
         </nav>
     </main>
 
-    <footer>
+    <footer style="background-color: #007BFF; color: #fff; text-align: center; padding: 1rem 0;">
         <div class="container">
             <p class="mb-0">&copy; 2023 Eventify. Todos los derechos reservados.</p>
         </div>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <script src="../menu.js"></script>
-    <script src="../script.js"></script>
 </body>
 </html>

@@ -38,7 +38,7 @@
     </nav>
 
     <main class="container mt-4">
-    <br></br>
+        <br>
         <h2 class="mb-4">Participar en Evento</h2>
         <?php if (isset($mensaje)): ?>
             <div class="alert alert-<?php echo $tipo_mensaje; ?>"><?php echo htmlspecialchars($mensaje); ?></div>

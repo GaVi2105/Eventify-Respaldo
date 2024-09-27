@@ -137,3 +137,14 @@ function subir_imagen($file, $id_evento)
         return "Error al guardar la imagen en la base de datos: " . $stmt->error;
     }
 }
+
+function obtener_eventos_recientes($limit = 10) {
+    global $conn;
+    $sql = "SELECT e.ID_evento, e.Nombre, e.Fecha, e.Imagen_evento FROM Evento e
+            ORDER BY e.Fecha DESC LIMIT ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $limit);
+    $stmt->execute();
+    return $stmt->get_result();
+}
+

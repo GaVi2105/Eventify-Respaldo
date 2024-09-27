@@ -38,7 +38,7 @@
     </nav>
 
     <main class="container mt-4">
-    <br></br>
+        <br>
         <h2 class="mb-4">
             <?php echo ($tipo_usuario == 'organizador') ? 'Mis Eventos Creados' : 'Eventos en los que Participo'; ?>
         </h2>
