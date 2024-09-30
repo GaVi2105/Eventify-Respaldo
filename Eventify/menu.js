@@ -24,3 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Funcion para mostrar el footer al hacer scroll hacia arriba en cualquier parte de la página
+

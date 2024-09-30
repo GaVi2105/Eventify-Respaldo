@@ -42,20 +42,18 @@
     <main class="mt-5">
         <div class="container">
             <h2 class="mb-4 mt-4">Eventos Recientes</h2>
-            <div class="main-content">
                 <div class="event-carousel">
                     <?php if (!empty($eventos_recientes) && $eventos_recientes->num_rows > 0): ?>
                         <?php foreach ($eventos_recientes as $evento): ?>
                             <div class="event-item">
-                                <img src="funciones/eventos/mostrar_imagen.php?id=<?php echo $evento['ID_evento']; ?>" alt="Imagen del evento">
-                                <p><?php echo htmlspecialchars($evento['Descripcion']); ?></p> <!-- Descripción del evento -->
+                                <img src="funciones/eventos/mostrar_imagen.php?id=<?php echo $evento['ID_evento']; ?>" class="card-img-top" alt="Imagen del evento" style="height: 150px; width: 150px; object-fit: cover;">
+                                <p><?php echo htmlspecialchars($evento['Descripcion']); ?></p> 
                             </div>
                         <?php endforeach; ?>
                     <?php else: ?>
                         <p>No hay eventos recientes disponibles.</p>
                     <?php endif; ?>
                 </div>
-            </div>
 
             <h2 class="mt-4 mb-4">Eventos Destacados</h2>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
@@ -112,7 +110,7 @@
         </div>
     </main>
 
-    <footer style="background-color: #007BFF; color: #fff; text-align: center; padding: 1rem 0;">  
+    <footer style="background-color: #007BFF; color: #fff; text-align: center; padding: 0.5rem 0;">  
     <div class="d-flex justify-content-around d-block d-md-none"> <!-- Alineación en fila, solo en pantallas pequeñas -->
         <div class="p-2">
             <button class="btn btn-primary" type="button" aria-label="Perfil" onclick="window.location.href='funciones/usuario/perfil.php'">
