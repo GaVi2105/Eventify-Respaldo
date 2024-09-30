@@ -168,7 +168,7 @@ footer {
     bottom: 0;  
     left: 0;
     right: 0;
-    z-index: 999;  
+    z-index: 999;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -209,7 +209,7 @@ footer .btn-icon svg {
 .event-carousel {
     display: flex;
     overflow-x: auto;
-    padding: 100px;
+    padding: 10px;
     scroll-snap-type: x mandatory;
     gap: 10px;
 }
