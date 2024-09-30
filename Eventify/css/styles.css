@@ -1,4 +1,4 @@
-body {  
+body {   
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
@@ -7,11 +7,17 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    transition: background-color 0.3s ease; /* Transición suave para el fondo */
 }
 
 h1, h2 {
     color: #007BFF;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    transition: color 0.3s ease; /* Transición suave para los encabezados */
+}
+
+h1:hover, h2:hover {
+    color: #0056b3; /* Efecto hover para los encabezados */
 }
 
 main {
@@ -36,6 +42,10 @@ main {
     transition: background-color 0.3s ease-in-out;
 }
 
+.navbar.scrolled {
+    background-color: rgba(0, 123, 255, 0.9); /* Cambia el color al hacer scroll */
+}
+
 .navbar .navbar-brand {
     font-size: 1.8rem;
     color: #fff;
@@ -50,11 +60,12 @@ main {
 .navbar-nav .nav-link {
     color: #fff;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease; /* Transiciones para los enlaces */
 }
 
 .navbar-nav .nav-link:hover {
     color: #ffd700;
+    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
 }
 
 .navbar-toggler {
@@ -81,15 +92,12 @@ main {
 }
 
 .card-img-top {
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
-    border-bottom-left-radius: 12px;
+    border-radius: 12px; /* Se simplificó el borde */
     transition: transform 0.3s ease;
 }
 
 .card-img-top:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
 }
 
 .card-title {
@@ -166,6 +174,33 @@ footer p {
     color: #fff;
 }
 
+footer .btn-icon {
+    width: 50px;  /* Aumenta el tamaño del botón */
+    height: 50px; /* Aumenta el tamaño del botón */
+    border-radius: 50%; /* Hace los botones circulares */
+    transition: transform 0.3s ease; /* Transición para el efecto de hover */
+}
+
+footer .btn-icon:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+}
+
+footer .btn-icon svg {
+    width: 30px; /* Aumenta el tamaño de los iconos */
+    height: 30px; /* Aumenta el tamaño de los iconos */
+}
+
+/* Espaciado adicional */
+@media (max-width: 768px) {
+    footer {
+        padding: 1rem 0; /* Ajusta el padding del footer */
+    }
+
+    footer .p-2 {
+        margin: 0.5rem; /* Espaciado entre los botones */
+    }
+}
+
 .event-carousel {
     display: flexbox;
     overflow-x: auto;
@@ -182,6 +217,11 @@ footer p {
     position: relative;
     border: 20px solid #ffffff;
     box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2);
+    transition: transform 0.3s ease; /* Efecto de zoom al pasar el mouse */
+}
+
+.event-item:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
 }
 
 .event-item img {
