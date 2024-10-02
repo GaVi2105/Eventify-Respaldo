@@ -91,6 +91,9 @@
 
             <button type="submit" class="btn btn-primary">Crear Evento</button>
         </form>
+        <br>
+        <br>
+        <br>
     </main>
 
     <footer style="background-color: #007BFF; color: #fff; text-align: center; padding: 1rem 0;">  

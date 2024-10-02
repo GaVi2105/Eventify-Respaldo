@@ -180,8 +180,8 @@ footer p {
 }
 
 footer .btn-icon {
-    width: 50px;  /* Aumenta el tamaño del botón */
-    height: 50px; /* Aumenta el tamaño del botón */
+    width: 25px;  /* Aumenta el tamaño del botón */
+    height: 25px; /* Aumenta el tamaño del botón */
     border-radius: 50%; /* Hace los botones circulares */
     transition: transform 0.3s ease; /* Transición para el efecto de hover */
 }
@@ -201,30 +201,34 @@ footer .btn-icon svg {
         padding: 1rem 0; /* Ajusta el padding del footer */
     }
 
-    footer .p-2 {
+    footer .p {
         margin: 0.5rem; /* Espaciado entre los botones */
     }
 }
 
+/* Estilos generales para el carrusel */
 .event-carousel {
     display: flex;
     overflow-x: auto;
     padding: 10px;
     scroll-snap-type: x mandatory;
     gap: 10px;
+    scroll-behavior: smooth; /* Desplazamiento suave */
 }
 
 .event-item {
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 100px;
     height: 100px;
-    border-radius: 100%;
+    border-radius: 50%;
     overflow: hidden;
     position: relative;
-    border: 1px solid #ffffff;
+    border: 1px solid #fff;
     box-shadow: 0 2px 4px rgba(255, 0, 0, 0.2);
-    transition: transform 0.3s ease; /* Efecto de zoom al pasar el mouse */
+    transition: transform 0.3s ease; /* Efecto de zoom */
+    scroll-snap-align: center;
 }
 
 .event-item:hover {
@@ -246,9 +250,31 @@ footer .btn-icon svg {
     bottom: 5px;
     left: 50%;
     transform: translateX(-50%);
-    color: rgb(0, 0, 0);
+    color: #fff;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
+
+/* Media queries para dispositivos móviles */
+@media (max-width: 768px) {
+    .event-carousel {
+        padding: 5px; /* Reducir el padding en móviles */
+        gap: 5px; /* Reducir el espacio entre elementos */
+    }
+
+    .event-item {
+        width: 60px; /* Reducir el tamaño de las esferas */
+        height: 60px;
+    }
+
+    .event-item:hover {
+        transform: scale(1); /* Reducir el zoom en móviles */
+    }
+
+    .event-info {
+        font-size: 0.5em; /* Reducir el tamaño del texto en móviles */
+    }
+}
+
 
 input[type="email"],
 input[type="password"] {

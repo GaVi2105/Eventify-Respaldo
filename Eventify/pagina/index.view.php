@@ -47,7 +47,6 @@
                         <?php foreach ($eventos_recientes as $evento): ?>
                             <div class="event-item">
                                 <img src="funciones/eventos/mostrar_imagen.php?id=<?php echo $evento['ID_evento']; ?>" class="card-img-top" alt="Imagen del evento" style="height: 100px; width: 100px; object-fit: cover;">
-                                <p><?php echo htmlspecialchars($evento['Descripcion']); ?></p> 
                             </div>
                         <?php endforeach; ?>
                     <?php else: ?>
@@ -90,27 +89,29 @@
             <div class="row">
                 <div class="col-md-4">
                     <blockquote class="blockquote">
-                        <p class="mb-5">"Eventify me ayudó a descubrir eventos increíbles que nunca habría encontrado por mi cuenta. ¡Lo recomiendo!"</p>
-                        <footer class="blockquote-footer">Juan Pérez, <cite title="Source Title">Asistente frecuente</cite></footer>
+                        <p class="mb-4">"Eventify me ayudó a descubrir eventos increíbles que nunca habría encontrado por mi cuenta. ¡Lo recomiendo!"</p>
+                        <p class="blockquote">Juan Pérez, <cite title="Source Title">Asistente frecuente</cite></p>
                     </blockquote>
                 </div>
                 <div class="col-md-4">
                     <blockquote class="blockquote">
-                        <p class="mb-5">"Organizar mi evento fue fácil y rápido. Todo el soporte que necesitaba estaba a solo un clic."</p>
-                        <footer class="blockquote-footer">María López, <cite title="Source Title">Organizadora de eventos</cite></footer>
+                        <p class="mb-4">"Organizar mi evento fue fácil y rápido. Todo el soporte que necesitaba estaba a solo un clic."</p>
+                        <p class="blockquote">María López, <cite title="Source Title">Organizadora de eventos</cite></p>
                     </blockquote>
                 </div>
                 <div class="col-md-4">
                     <blockquote class="blockquote">
-                        <p class="mb-5">"Una plataforma fantástica para conectarme con la comunidad y disfrutar de grandes experiencias."</p>
-                        <footer class="blockquote-footer">Luis Fernández, <cite title="Source Title">Asistente</cite></footer>
+                        <p class="mb-4">"Una plataforma fantástica para conectarme con la comunidad y disfrutar de grandes experiencias."</p>
+                        <p class="blockquote">Luis Fernández, <cite title="Source Title">Asistente</cite></p>
                     </blockquote>
                 </div>
             </div>
         </div>
+        <br>
+        <br>
     </main>
 
-    <footer style="background-color: #007BFF; color: #fff; text-align: center; padding: 0.5rem 0;">  
+    <footer style="background-color: #007BFF; color: #fff; text-align: center; padding: 0.5rem 0;"> 
     <div class="d-flex justify-content-around d-block d-md-none"> <!-- Alineación en fila, solo en pantallas pequeñas -->
         <div>
             <button class="btn btn-primary" type="button" aria-label="Perfil" onclick="window.location.href='funciones/usuario/perfil.php'">
@@ -141,7 +142,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-    <script src="js/menu.js"></script>
+    <script src="menu.js"></script>
 </body>
 
 </html>
