@@ -12,7 +12,9 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container-fluid">
-            <img src="icono/Logo.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-top">
+        <a href="index.php" width="60" height="60">
+               <img src="icono/Logo.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-top">
+            </a>
             <a class="navbar-brand" href="index.php">Eventify</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
@@ -111,7 +113,7 @@
         <br>
     </main>
 
-    <footer style="background-color: #007BFF; color: #fff; text-align: center; padding: 0.5rem 0;"> 
+    <footer style="background-color: #007BFF; color: #fff; text-align: center; padding: 0.2rem 0;"> 
     <div class="d-flex justify-content-around d-block d-md-none"> <!-- Alineación en fila, solo en pantallas pequeñas -->
         <div>
             <button class="btn btn-primary" type="button" aria-label="Perfil" onclick="window.location.href='funciones/usuario/perfil.php'">

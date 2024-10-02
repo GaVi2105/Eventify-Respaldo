@@ -7,17 +7,17 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    transition: background-color 0.3s ease; /* Transición suave para el fondo */
+    transition: background-color 0.3s ease;
 }
 
 h1, h2 {
     color: #007BFF;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-    transition: color 0.3s ease; /* Transición suave para los encabezados */
+    transition: color 0.3s ease;
 }
 
 h1:hover, h2:hover {
-    color: #0056b3; /* Efecto hover para los encabezados */
+    color: #0056b3;
 }
 
 main {
@@ -43,7 +43,7 @@ main {
 }
 
 .navbar.scrolled {
-    background-color: rgba(0, 123, 255, 0.9); /* Cambia el color al hacer scroll */
+    background-color: rgba(0, 123, 255, 0.9);
 }
 
 .navbar .navbar-brand {
@@ -60,12 +60,12 @@ main {
 .navbar-nav .nav-link {
     color: #fff;
     font-weight: 500;
-    transition: color 0.3s ease, transform 0.3s ease; /* Transiciones para los enlaces */
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover {
     color: #ffd700;
-    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+    transform: scale(1.05);
 }
 
 .navbar-toggler {
@@ -92,12 +92,12 @@ main {
 }
 
 .card-img-top {
-    border-radius: 12px; /* Se simplificó el borde */
+    border-radius: 12px;
     transition: transform 0.3s ease;
 }
 
 .card-img-top:hover {
-    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+    transform: scale(1.1);
 }
 
 .card-title {
@@ -162,13 +162,13 @@ footer {
     background: linear-gradient(45deg, #007BFF, #0056b3);
     color: #fff;
     text-align: center;
-    padding: 0.5rem 0px;
+    padding: 0.1rem 0px;
     width: 100%;
     position: fixed;  
     bottom: 0;  
     left: 0;
     right: 0;
-    z-index: 999;
+    z-index: 9;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -180,40 +180,38 @@ footer p {
 }
 
 footer .btn-icon {
-    width: 25px;  /* Aumenta el tamaño del botón */
-    height: 25px; /* Aumenta el tamaño del botón */
-    border-radius: 50%; /* Hace los botones circulares */
-    transition: transform 0.3s ease; /* Transición para el efecto de hover */
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
 }
 
 footer .btn-icon:hover {
-    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+    transform: scale(1.1);
 }
 
 footer .btn-icon svg {
-    width: 30px; /* Aumenta el tamaño de los iconos */
-    height: 30px; /* Aumenta el tamaño de los iconos */
+    width: 30px;
+    height: 30px;
 }
 
-/* Espaciado adicional */
 @media (max-width: 768px) {
     footer {
-        padding: 1rem 0; /* Ajusta el padding del footer */
+        padding: 1rem 0;
     }
 
     footer .p {
-        margin: 0.5rem; /* Espaciado entre los botones */
+        margin: 0.5rem;
     }
 }
 
-/* Estilos generales para el carrusel */
 .event-carousel {
     display: flex;
     overflow-x: auto;
     padding: 10px;
     scroll-snap-type: x mandatory;
     gap: 10px;
-    scroll-behavior: smooth; /* Desplazamiento suave */
+    scroll-behavior: smooth;
 }
 
 .event-item {
@@ -227,12 +225,12 @@ footer .btn-icon svg {
     position: relative;
     border: 1px solid #fff;
     box-shadow: 0 2px 4px rgba(255, 0, 0, 0.2);
-    transition: transform 0.3s ease; /* Efecto de zoom */
+    transition: transform 0.3s ease;
     scroll-snap-align: center;
 }
 
 .event-item:hover {
-    transform: scale(1.2); /* Efecto de zoom al pasar el mouse */
+    transform: scale(1.2);
 }
 
 .event-item img {
@@ -254,24 +252,23 @@ footer .btn-icon svg {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
-/* Media queries para dispositivos móviles */
 @media (max-width: 768px) {
     .event-carousel {
-        padding: 5px; /* Reducir el padding en móviles */
-        gap: 5px; /* Reducir el espacio entre elementos */
+        padding: 5px;
+        gap: 5px;
     }
 
     .event-item {
-        width: 60px; /* Reducir el tamaño de las esferas */
+        width: 60px;
         height: 60px;
     }
 
     .event-item:hover {
-        transform: scale(1); /* Reducir el zoom en móviles */
+        transform: scale(1);
     }
 
     .event-info {
-        font-size: 0.5em; /* Reducir el tamaño del texto en móviles */
+        font-size: 0.5em;
     }
 }
 
@@ -314,5 +311,138 @@ input[type="password"]:focus {
 
     .navbar-nav .nav-link {
         padding: 10px 0;
+    }
+}
+
+.login {
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.login::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../imagenes/paysandu.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px);
+    z-index: 1;
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.788);
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.register {
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.register::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../imagenes/paysandu.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px);
+    z-index: 1;
+}
+
+.register-container {
+    background-color: rgba(255, 255, 255, 0.774);
+    border-radius: 50px;
+    padding: 50px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    width: 50%;
+    max-width: 950px;
+    height: auto;
+    max-height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    overflow-y: auto;
+}
+
+/* Media query para pantallas móviles */
+@media (max-width: 768px) {
+    .register-container {
+        width: 80%; /* Hacer el contenedor más ancho en móviles */
+        max-width: 80%; /* Limita el ancho máximo en móviles */
+        padding: 30px; /* Reducir el padding para que se ajuste mejor */
+        border-radius: 20px; /* Reducir el radio de los bordes en móviles */
+        max-height: 80%; /* Ajustar el contenedor para pantallas más pequeñas */
+    }
+}
+
+.fondo {
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.fondo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../imagenes/fondo.jfif');
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px);
+    z-index: 1;
+}
+
+.fondo-container {
+    background-color: rgba(255, 255, 255, 0.774);
+    border-radius: 50px;
+    padding: 50px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    width: 50%;
+    max-width: auto;
+    height: auto;
+    max-height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    overflow-y: auto;
+}
+
+/* Media query para pantallas móviles */
+@media (max-width: 768px) {
+    .fondo-container {
+        width: 80%; /* Hacer el contenedor más ancho en móviles */
+        max-width: 80%; /* Limita el ancho máximo en móviles */
+        padding: 30px; /* Reducir el padding para que se ajuste mejor */
+        border-radius: 20px; /* Reducir el radio de los bordes en móviles */
+        max-height: 80%; /* Ajustar el contenedor para pantallas más pequeñas */
     }
 }

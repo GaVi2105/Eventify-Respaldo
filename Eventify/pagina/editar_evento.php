@@ -12,23 +12,24 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container-fluid">
-        <img src="../../icono/Logo.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-top">
-            <a class="navbar-brand" href="../../index.php">Eventify</a>
+        <a href="../../index.php" width="60" height="60">
+               <img src="../../icono/Logo.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-top">
+            </a>            <a class="navbar-brand" href="../../index.php">Eventify</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.php">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="eventos.php">Eventos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.php">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../funciones/eventos/eventos.php">Eventos</a></li>
                         <?php if (isset($_SESSION['usuario'])): ?>
                         <?php if ($_SESSION['tipo_usuario'] == 'organizador'): ?>
-                    <li class="nav-item"><a class="nav-link" href="crear_evento.php">Crear Evento</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../funciones/eventos/crear_evento.php">Crear Evento</a></li>
                         <?php endif; ?>
-                    <li class="nav-item"><a class="nav-link" href="mis_eventos.php">Mis Eventos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="perfil.php">Mi Perfil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="cerrar_sesion.php">Cerrar Sesión</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../funciones/eventos/mis_eventos.php">Mis Eventos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../funciones/usuario/perfil.php">Mi Perfil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../funciones/usuario/cerrar_sesion.php">Cerrar Sesión</a></li>
                         <?php else: ?>
                     <li class="nav-item"><a class="nav-link" href="login.php">Iniciar Sesión</a></li>
                     <li class="nav-item"><a class="nav-link" href="../usuario/register.php">Registrarse</a></li>
@@ -39,6 +40,7 @@
     </nav>
 
     <main class="container mt-4">
+        <br>
         <br>
         <h2 class="mb-4">Editar Evento</h2>
         <?php if (isset($mensaje)): ?>
@@ -99,28 +101,32 @@
                     <p class="mt-1">Imagen actual del evento</p>
                 <?php endif; ?>
             </div>
-
             <button type="submit" class="btn btn-primary">Actualizar Evento</button>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
         </form>
     </main>
 
-    <footer style="background-color: #007BFF; color: #fff; text-align: center; padding: 1rem 0;">  
+    <footer style="background-color: #007BFF; color: #fff; text-align: center; padding: 0.2rem 0;"> 
     <div class="d-flex justify-content-around d-block d-md-none"> <!-- Alineación en fila, solo en pantallas pequeñas -->
-        <div class="p-2">
+        <div>
             <button class="btn btn-primary" type="button" aria-label="Perfil" onclick="window.location.href='funciones/usuario/perfil.php'">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                     <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
                 </svg>
             </button>
         </div>
-        <div class="p-2">
+        <div>
             <button class="btn btn-primary" type="button" aria-label="Buscar" onclick="window.location.href='funciones/eventos/buscar.php'">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
                 </svg>
             </button>
         </div>
-        <div class="p-2">
+        <div>
             <button class="btn btn-primary" type="button" aria-label="Agregar Evento" onclick="window.location.href='funciones/eventos/agregar.php'">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>

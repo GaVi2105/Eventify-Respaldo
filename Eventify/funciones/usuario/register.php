@@ -93,6 +93,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
+// Verificar que el archivo de imagen ha sido subido correctamente
+if (isset($_FILES['imagen_perfil']) && $_FILES['imagen_perfil']['error'] == 0) {
+    $target_dir = "uploads/perfiles/"; // Directorio donde se guardarán las fotos
+    $file_name = basename($_FILES["foto_perfil"]["name"]);
+    $target_file = $target_dir . uniqid() . '_' . $file_name; // Generar un nombre único
+
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+    // Validar que el archivo sea una imagen
+    $check = getimagesize($_FILES["foto_perfil"]["tmp_name"]);
+    if ($check === false) {
+        $error = "El archivo no es una imagen válida.";
+    } elseif ($_FILES["foto_perfil"]["size"] > 5000000) { // Limitar el tamaño a 5MB
+        $error = "La imagen es demasiado grande. Debe ser menor a 5MB.";
+    } elseif (!in_array($imageFileType, ['jpg', 'jpeg', 'png', 'gif'])) {
+        $error = "Solo se permiten archivos JPG, JPEG, PNG y GIF.";
+    } else {
+        // Mover la imagen al directorio de destino
+        if (move_uploaded_file($_FILES["foto_perfil"]["tmp_name"], $target_file)) {
+            $foto_perfil = $target_file; // Guardar la ruta de la imagen en la base de datos
+        } else {
+            $error = "Hubo un error al subir la imagen.";
+        }
+    }
+} else {
+    $error = "Debe subir una foto de perfil.";
+}
+
 
 include '../../pagina/register.view.php';
 ?>
