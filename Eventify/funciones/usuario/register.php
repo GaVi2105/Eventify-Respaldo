@@ -3,12 +3,11 @@ include '../configuracion/config.php';  // Incluye la conexión a la base de dat
 
 $error = '';
 
-// Verifica si el formulario fue enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     // Obtiene los datos del formulario
     $nombre = mysqli_real_escape_string($conn, $_POST['nombre']);
     $correo = mysqli_real_escape_string($conn, $_POST['correo']);
+    $genero = mysqli_real_escape_string($conn, $_POST['genero']);
     $contrasenia = $_POST['contrasenia'];
     $confirmar_contrasenia = $_POST['confirmar_contrasenia'];
     $edad = mysqli_real_escape_string($conn, $_POST['edad']);
@@ -58,14 +57,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($result_ci->num_rows > 0) {
                     $error = "Esta cédula ya está registrada.";
                 } else {
+                    // Manejar la carga de la imagen de perfil
+                    if (isset($_FILES['imagen_perfil']) && $_FILES['imagen_perfil']['error'] == 0) {
+                        $imagen_perfil = file_get_contents($_FILES['imagen_perfil']['tmp_name']);
+                    } else {
+                        // Imagen genérica si no se sube ninguna
+                        $imagen_perfil = file_get_contents('../imagenes/imagen_generica.png');
+                    }
+
                     // Si todo está bien, realiza el hash de la contraseña
                     $contrasenia_hash = password_hash($contrasenia, PASSWORD_DEFAULT);
 
-                    // Inserta el nuevo usuario en la base de datos
-                    $sql = "INSERT INTO Usuario (Nombre, Correo_electronico, Contrasenia, Edad, Numero_telefono, CI, Tipo_usuario) 
-                            VALUES (?, ?, ?, ?, ?, ?, ?)";
+                    // Inserta el nuevo usuario en la base de datos, incluyendo género y foto de perfil
+                    $sql = "INSERT INTO Usuario (Nombre, Correo_electronico, Contrasenia, Edad, Numero_telefono, CI, Tipo_usuario, Genero, Imagen_perfil) 
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     $stmt = $conn->prepare($sql);
-                    $stmt->bind_param("sssssss", $nombre, $correo, $contrasenia_hash, $edad, $telefono, $ci, $tipo_usuario);
+                    $stmt->bind_param("sssssssss", $nombre, $correo, $contrasenia_hash, $edad, $telefono, $ci, $tipo_usuario, $genero, $imagen_perfil);
 
                     if ($stmt->execute()) {
                         $id_usuario = $conn->insert_id;
@@ -93,34 +100,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
-// Verificar que el archivo de imagen ha sido subido correctamente
-if (isset($_FILES['imagen_perfil']) && $_FILES['imagen_perfil']['error'] == 0) {
-    $target_dir = "uploads/perfiles/"; // Directorio donde se guardarán las fotos
-    $file_name = basename($_FILES["foto_perfil"]["name"]);
-    $target_file = $target_dir . uniqid() . '_' . $file_name; // Generar un nombre único
-
-    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-    // Validar que el archivo sea una imagen
-    $check = getimagesize($_FILES["foto_perfil"]["tmp_name"]);
-    if ($check === false) {
-        $error = "El archivo no es una imagen válida.";
-    } elseif ($_FILES["foto_perfil"]["size"] > 5000000) { // Limitar el tamaño a 5MB
-        $error = "La imagen es demasiado grande. Debe ser menor a 5MB.";
-    } elseif (!in_array($imageFileType, ['jpg', 'jpeg', 'png', 'gif'])) {
-        $error = "Solo se permiten archivos JPG, JPEG, PNG y GIF.";
-    } else {
-        // Mover la imagen al directorio de destino
-        if (move_uploaded_file($_FILES["foto_perfil"]["tmp_name"], $target_file)) {
-            $foto_perfil = $target_file; // Guardar la ruta de la imagen en la base de datos
-        } else {
-            $error = "Hubo un error al subir la imagen.";
-        }
-    }
-} else {
-    $error = "Debe subir una foto de perfil.";
-}
-
-
 include '../../pagina/register.view.php';
 ?>

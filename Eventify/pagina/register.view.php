@@ -12,8 +12,8 @@
 <body class="register">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container-fluid">
-            <a href="../../index.php" width="60" height="60">
-                <img src="../../icono/Logo.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-top">
+            <a href="../../index.php" width="50" height="50">
+                <img src="../../icono/Logo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top">
             </a> <a class="navbar-brand" href="../../index.php">Eventify</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,17 +38,15 @@
             </div>
         </div>
     </nav>
+
     <main class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col-md-6 register-container">
-                <h1 class="mb-4" style="text-align: center;">Registro de Usuario</h1>
+            <div style="margin-top: 20px;" class="col-md-6 register-container">
+                <h1 style="text-align: center;">Registro de Usuario</h1>
                 <?php if (isset($error) && $error != ''): ?>
                     <div class="alert alert-danger" role="alert"><?php echo htmlspecialchars($error); ?></div>
                 <?php endif; ?>
-
-                <!-- Agregar enctype para permitir la carga de archivos -->
-                <form action="register.php" method="POST" class="needs-validation" enctype="multipart/form-data"
-                    novalidate>
+                <form action="register.php" method="POST" class="needs-validation" enctype="multipart/form-data" novalidate>
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre completo:</label>
                         <input type="text" class="form-control" id="nombre" name="nombre" required>
@@ -75,8 +73,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="confirmar_contrasenia" class="form-label">Confirmar Contraseña:</label>
-                        <input type="password" class="form-control" id="confirmar_contrasenia"
-                            name="confirmar_contrasenia" required>
+                        <input type="password" class="form-control" id="confirmar_contrasenia" name="confirmar_contrasenia" required>
                     </div>
                     <div class="mb-3">
                         <label for="tipo_usuario" class="form-label">Tipo de usuario:</label>
@@ -85,11 +82,17 @@
                             <option value="organizador">Organizador</option>
                         </select>
                     </div>
-
-                    <!-- Campo para subir imagen de perfil -->
                     <div class="mb-3">
-                        <label for="foto_perfil" class="form-label">Foto de perfil (opcional):</label>
-                        <input type="file" class="form-control" id="foto_perfil" name="foto_perfil" accept="image/*">
+                        <label for="genero" class="form-label">Género:</label>
+                        <select class="form-select" id="genero" name="genero" required>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="imagen_perfil" class="form-label">Subir imagen de perfil:</label>
+                        <input type="file" class="form-control" id="imagen_perfil" name="imagen_perfil" accept="image/*">
                     </div>
 
                     <button type="submit" class="btn btn-primary">Registrarse</button>
@@ -100,42 +103,21 @@
     </main>
 
     <footer class="d-block d-md-none" style="background-color: #007BFF; color: #fff; text-align: center; padding: 0.2rem 0;"> 
-    <div class="hstack gap-3"> <!-- Alineación en fila, solo en pantallas pequeñas -->
-        <div class="p-1">
-        <?php if (isset($_SESSION['usuario'])): ?>
-            <?php if ($_SESSION['tipo_usuario'] == 'participante' || $_SESSION['tipo_usuario'] == 'organizador'): ?>
-            <button class="btn btn-primary" type="button" aria-label="Perfil" onclick="window.location.href='../usuario/register.php'">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
-                </svg>
-            </button>
-            <?php endif; ?>
-            <?php endif; ?>
-        </div>
-        <div class="p-1 ms-auto" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%);">
-        <?php if (isset($_SESSION['usuario'])): ?>
-            <?php if ($_SESSION['tipo_usuario'] == 'participante'): ?>
-            <button class="btn btn-primary" type="button" aria-label="Buscar" onclick="window.location.href='funciones/eventos/buscar.php'">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                </svg>
-            </button>
-            <?php endif; ?>
-            <?php endif; ?>
-        </div>
-        <div class="p-1" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%);">
-                <?php if (isset($_SESSION['usuario'])): ?>
-                <?php if ($_SESSION['tipo_usuario'] == 'organizador'): ?>
-            <button class="btn btn-primary" type="button" aria-label="Agregar Evento" onclick="window.location.href='funciones/eventos/crear_evento.php'">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
-                </svg>
-            </button>
+        <div class="hstack gap-3"> 
+            <div class="p-1">
+            <?php if (isset($_SESSION['usuario'])): ?>
+                <?php if ($_SESSION['tipo_usuario'] == 'participante' || $_SESSION['tipo_usuario'] == 'organizador'): ?>
+                <button class="btn btn-primary" type="button" aria-label="Perfil" onclick="window.location.href='../usuario/register.php'">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+                    </svg>
+                </button>
                 <?php endif; ?>
                 <?php endif; ?>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <script src="../menu.js"></script>
