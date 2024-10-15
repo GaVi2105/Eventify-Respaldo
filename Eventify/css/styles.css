@@ -21,17 +21,22 @@ h1:hover, h2:hover {
 }
 
 main {
-    flex: 1;
-    padding-top: 80px;
-    padding: 2rem;
-    max-width: 1200px;
     margin: 0 auto;
     width: 100%;
     box-sizing: border-box;
+    margin-top: 75px;
+}
+
+main img  {
+    object-fit: cover;
+}
+
+.mt-5 {
+    margin-top: 0 !important;
 }
 
 .navbar {
-    background: linear-gradient(45deg, #007BFF, #0056b3);
+    background-image: linear-gradient(to right bottom, #0546a8, #005cbb, #0073cd, #0089de, #009fed, #009fed, #009fed, #009fed, #0089de, #0073cd, #005cbb, #0546a8);
     padding: 0.75rem 1rem;
     position: fixed;
     top: 0;
@@ -41,6 +46,48 @@ main {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease-in-out;
 }
+
+.carousel-control-next, .carousel-control-prev {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5%;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    background: 0 0;
+    border: 0;
+    opacity: .5;
+    transition: opacity .15s ease;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+    height: 100%;
+}
+
+.banner-img {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    max-width: 85%;
+    max-height: 85%;
+    object-fit: contain;
+}
+
+
 
 .navbar.scrolled {
     background-color: rgba(0, 123, 255, 0.9);
@@ -158,6 +205,7 @@ button[type="submit"]::before,
     pointer-events: none;
 }
 
+
 footer {
     background: linear-gradient(45deg, #007BFF, #0056b3);
     color: #fff;
@@ -171,6 +219,19 @@ footer {
     z-index: 9;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }
+/* footer {
+    background: linear-gradient(45deg, #007BFF, #0056b3);
+    color: #fff;
+    text-align: center;
+    padding: 0.1rem 0px;
+    width: 100%;
+    position: fixed;  
+    bottom: 0;  
+    left: 0;
+    right: 0;
+    z-index: 9;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+} */
 
 
 footer p {
@@ -195,8 +256,40 @@ footer .btn-icon svg {
     height: 30px;
 }
 
+#map {
+    height: 400px;
+    width: 100%;
+    z-index: 5;
+}
+
+
 @media (max-width: 768px) {
+    main {
+        padding-top: 70px; 
+        padding: 0;
+    }
+
+    /* Ajustes al form */
+    form {
+        padding-top: 80px;
+        margin: 0 auto;
+        padding: 10px;
+        width: 100%;
+    }
+
+    input[type="text"],
+    input[type="datetime-local"],
+    input[type="number"],
+    input[type="file"],
+    textarea,
+    select {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    /* Footer que se mueve con el contenido */
     footer {
+        position: fixed;
         padding: 1rem 0;
     }
 
@@ -476,7 +569,6 @@ input[type="password"]:focus {
     margin-top: calc(-1* var(--bs-gutter-y));
     margin-right: calc(-.5* var(--bs-gutter-x));
     margin-left: calc(-.5* var(--bs-gutter-x));
-    justify-content: space-between;
 }
 
 .perfil-img {
@@ -515,22 +607,35 @@ input[type="password"]:focus {
 }
 
 .event-finalizado {
-    position: absolute; /* Posiciona el mensaje sobre la imagen */
+    position: absolute; 
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.7); /* Fondo blanco semi-transparente */
+    background-color: rgba(255, 255, 255, 0.7); 
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 10; /* Asegúrate de que esté encima de la imagen */
+    z-index: 10; 
 }
 
 .mensaje-finalizado {
-    font-size: 1.5em; /* Tamaño de fuente del mensaje */
-    color: rgb(255, 101, 101); /* Color del texto */
-    text-decoration: line-through; /* Tachar el texto */
-    font-weight: bold; /* Negrita */
+    font-size: 1.5em; 
+    color: rgb(255, 101, 101); 
+    text-decoration: line-through; 
+    font-weight: bold; 
 }
 
+@media only screen and (max-width: 799px) {
+    .eventInfoMain {
+        width: 100%;
+        margin: 2vh 0;
+        row-gap: 5vw;
+        flex-direction: column-reverse;
+    }
+}
+
+.event-card {
+    max-width: 300px; /* Ajusta el tamaño máximo de la tarjeta */
+    margin: auto; /* Centra la tarjeta en la página */
+}
