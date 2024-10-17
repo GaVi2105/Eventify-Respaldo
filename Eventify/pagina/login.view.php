@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión - Eventify</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
@@ -63,16 +64,29 @@
                     </div>
                     <div class="mb-3">
                         <label for="contrasenia" class="form-label">Contraseña:</label>
-                        <input type="password" class="form-control" id="contrasenia" name="contrasenia" required>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="contrasenia" name="contrasenia" required>
+                            <span class="toggle-password" onclick="togglePasswordVisibility()" style="padding-top: 18px;padding-left: 10px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </span>
+                        </div>
                     </div>
+
+
                     <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                    <div class="mt-3">
+                        <a href="../funciones/usuaruio/recuperar_contrasenia.php" class="btn btn-link">¿Olvidaste tu contraseña?</a>
+                    </div>
                 </form>
             </div>
         </div>
     </main>
     <footer class="d-block d-md-none"
         style="background-color: #007BFF; color: #fff; text-align: center; padding: 0.2rem 0;">
-        <div class="hstack gap-3"> <!-- Alineación en fila, solo en pantallas pequeñas -->
+        <div class="hstack gap-3">
             <div class="p-1">
                 <?php if (isset($_SESSION['usuario'])): ?>
                     <?php if ($_SESSION['tipo_usuario'] == 'participante' || $_SESSION['tipo_usuario'] == 'organizador'): ?>
@@ -120,6 +134,7 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="../../menu.js"></script>
 </body>
 
 </html>
