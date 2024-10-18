@@ -88,7 +88,7 @@
     </div>
 </main>
 
-    <main class="mt-5">
+    <main style="padding-top: 30px; padding-bottom: 3rem;" class="mt-5">
         <div class="container">
             <h2 class="mb-4 mt-4">Eventos Recientes</h2>
             <div class="event-carousel">

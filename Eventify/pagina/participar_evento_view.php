@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div id="map" style="height: 400px; margin-left: 50px; border-radius: 15px;"></div>
+                <div id="map" style="height: 400px; border-radius: 15px;"></div>
             </div>
         </div>
     </main>
@@ -80,27 +80,30 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-    <script>
-        var coords = "<?php echo $evento['ubicacion'] ?? '0,0'; ?>";
-        var latlng = coords.split(',');
+    <script>  
+    // Inicializa el mapa  
+    var map = L.map('map').setView([-32.3171, -58.08072], 13); // Ajusta el centro del mapa  
 
-        var lat = parseFloat(latlng[0]);
-        var lng = parseFloat(latlng[1]);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {  
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'  
+    }).addTo(map);  
 
-        if (isNaN(lat) || isNaN(lng)) {
-            lat = -32.3171;
-            lng = -58.08072;
-        }
-
-        var map = L.map('map').setView([lat, lng], 13);
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-        var marker = L.marker([lat, lng]).addTo(map);
-        marker.bindPopup('<b>Ubicación del Evento</b>').openPopup();
-    </script>
+    // Supongamos que tienes un array de eventos en PHP llamado $eventos  
+    <?php if (!empty($eventos)) : ?>  
+        <?php foreach ($eventos as $evento) : ?>  
+            <?php  
+                // Supongamos que la ubicación está en formato "lat,lng"  
+                list($lat, $lng) = explode(',', $evento['Ubicacion']);  
+            ?>  
+            // Crear un marcador en la ubicación del evento  
+            var marker = L.marker([<?php echo $lat; ?>, <?php echo $lng; ?>]).addTo(map);  
+            // Asociar un popup al marcador con la información del evento  
+            marker.bindPopup('<b><?php echo $evento['Nombre']; ?></b><br><?php echo $evento['Descripcion']; ?><br><?php echo $evento['Fecha']; ?>');  
+        <?php endforeach; ?>  
+    <?php else : ?>  
+        console.log("No hay eventos disponibles para mostrar.");  
+    <?php endif; ?>  
+</script>
 </body>
 
 </html>

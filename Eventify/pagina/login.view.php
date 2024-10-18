@@ -66,7 +66,7 @@
                         <label for="contrasenia" class="form-label">Contraseña:</label>
                         <div class="input-group">
                             <input type="password" class="form-control" id="contrasenia" name="contrasenia" required>
-                            <span class="toggle-password" onclick="togglePasswordVisibility()" style="padding-top: 18px;padding-left: 10px;">
+                            <span class="toggle-password" onclick="togglePasswordVisibility()" style="border-radius: 25px; padding-top: 18px;padding-left: 10px;">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye">
                                     <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                                     <circle cx="12" cy="12" r="3"></circle>
@@ -77,9 +77,9 @@
 
 
                     <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-                    <div class="mt-3">
+                    <!-- <div class="mt-3">
                         <a href="../funciones/usuaruio/recuperar_contrasenia.php" class="btn btn-link">¿Olvidaste tu contraseña?</a>
-                    </div>
+                    </div> -->
                 </form>
             </div>
         </div>

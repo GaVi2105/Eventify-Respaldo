@@ -1,7 +1,7 @@
 body {   
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    padding: 0;
+    padding-top: 1rem;
     background-color: #f9f9fa;
     color: #333;
     display: flex;
@@ -25,11 +25,15 @@ main {
     margin: 0 auto;
     width: 100%;
     box-sizing: border-box;
-    padding-top: 80px;
+    padding-top: 69px;
 }
 
 main img  {
     object-fit: cover;
+}
+
+.mt-4 {
+    margin-top: 0 !important;
 }
 
 .mt-5 {
@@ -94,35 +98,42 @@ main img  {
     display: block;
 }
 
-@media (max-width: 480px) {
-    .carousel-item img {
-        height: 300px;
-        object-fit: contain;
-    }
-    .carousel-caption {
-        padding: 10px;
-        background: rgba(0, 0, 0, 0.5);
-    }
-    .banner-img {
-        width: 150px;
-        max-width: 70%;
-    }
-    .carousel-caption h1 {
-        font-size: 1.5rem;
-    }
-}
+@media (max-width: 480px) {  
+    body {  
+        padding-top: 1rem;  
+    }  
+    .carousel-item img {  
+        height: 300px;  
+        object-fit: contain;  
+    }  
+    .carousel-caption {  
+        padding: 10px;  
+        background: rgba(0, 0, 0, 0.5);  
+    }  
+    .banner-img {  
+        width: 150px;  
+        max-width: 70%;  
+    }  
+    .carousel-caption h1 {  
+        font-size: 1.5rem;  
+    }  
+    /* Ocultar el carrusel en pantallas pequeñas */  
+    .carousel {  
+        display: none; /* Esto oculta el carrusel */  
+    }  
+}  
 
-@media (max-width: 480px) {
-    .carousel-item img {
-        height: 250px;
-    }
-    .banner-img {
-        width: 100px;
-        max-width: 60%;
-    }
-    .carousel-caption h1 {
-        font-size: 1.2rem;
-    }
+@media (max-width: 480px) {  
+    .carousel-item img {  
+        height: 250px;  
+    }  
+    .banner-img {  
+        width: 100px;  
+        max-width: 60%;  
+    }  
+    .carousel-caption h1 {  
+        font-size: 1.2rem;  
+    }  
 }
 
 
@@ -293,7 +304,7 @@ footer .btn-icon svg {
 @media (max-width: 768px) {
     main {
         padding-top: 70px; 
-        padding: 0;
+        padding: 3.5rem;
     }
 
     form {
